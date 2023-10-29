@@ -11,19 +11,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater).apply {
             setContentView(root)
-            recycler.adapter = FotosAdapter(fotos){ string ->
-                val fragment = FotoFragment()
-                fragment.arguments = bundleOf(FotoFragment.FOTO to string)
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container_view, fragment)
-                    .addToBackStack(null)
-                    .commit()
-            }
+
         }
 
     }
 
-    private val fotos = (1..100).map{
-        "https://picsum.photos/200/300?random=$it"
-    }
+
 }
